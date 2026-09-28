@@ -25,6 +25,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - EFFECT_BUMP
   - EFFECT_HUE_VARIATION
   - _WINDQUALITY_BEST
   m_InvalidKeywords: []
@@ -113,7 +114,7 @@ Material:
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _BillboardKwToggle: 0
-    - _BillboardShadowFade: 0.5
+    - _BillboardShadowFade: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BlendOp: 0
@@ -133,7 +134,7 @@ Material:
     - _HueVariationKwToggle: 1
     - _Metallic: 0
     - _Mode: 0
-    - _NormalMapKwToggle: 0
+    - _NormalMapKwToggle: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
@@ -144,10 +145,10 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
-    - _SubsurfaceIndirect: 0.25
+    - _SubsurfaceIndirect: 0
     - _SubsurfaceKwToggle: 0
     - _Surface: 0
-    - _TwoSided: 2
+    - _TwoSided: 0
     - _UVSec: 0
     - _WindQuality: 4
     - _WorkflowMode: 1
