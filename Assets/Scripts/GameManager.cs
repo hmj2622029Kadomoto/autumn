@@ -1,29 +1,32 @@
 using UnityEngine;
-using ithappy.Animals_FREE;
+using ithappy.Animals_FREE; // カメラのネームスペースを使えるようにする
 
 public class GameManager : MonoBehaviour
 {
-	// インスペクターで選べる動物のプレファブを配列で登録する
+	// インスペクターで選べる動物のプレハブを配列で登録する
 	[SerializeField] private GameObject[] m_AnimalPrefabs;
 
-	// 動物を生み出す場所
+	// 動物を生み出す場所（シーン内に空のGameObjectを作って配置しておく）
 	[SerializeField] private Transform m_SpawnPoint;
 
-	private void Start()
+	void Start()
 	{
-		// タイトルで保存された動物のIDを読み込む
 		int selectedID = PlayerPrefs.GetInt("AnimalSelected", 0);
 
-		// 指定された動物のプレファブを、スポーン位置に生み出す
-		GameObject spawnedAnimal = Instantiate(m_AnimalPrefabs[selectedID],m_SpawnPoint.position,m_SpawnPoint.rotation);
+		GameObject spawnedAnimal = Instantiate(m_AnimalPrefabs[selectedID], m_SpawnPoint.position, m_SpawnPoint.rotation);
 
-		// シーン内にある3人称カメラを探す
-		ThirdPersonCamera cameraScript = FindAnyObjectByType<ThirdPersonCamera>();
+		ThirdPersonCamera cameraScript = FindObjectOfType<ThirdPersonCamera>();
 
 		if (cameraScript != null)
 		{
-			// 生み出した動物の「Transform」をカメラの追従対象として自動登録する
-			cameraScript.setplayer
+			cameraScript.SetPlayer(spawnedAnimal.transform);
+
+			MovePlayerInput playerInput = spawnedAnimal.GetComponent<MovePlayerInput>();
+
+			if (playerInput != null)
+			{
+				playerInput.BindCamera(cameraScript);
+			}
 		}
 	}
 }

@@ -62,6 +62,11 @@ namespace ithappy.Animals_FREE
             m_Mover = mover;
         }
 
+		public void BindCamera(PlayerCamera camera)
+		{
+			m_Camera = camera;
+		}
+
         public void SetInput()
         {
             if (m_Mover != null)

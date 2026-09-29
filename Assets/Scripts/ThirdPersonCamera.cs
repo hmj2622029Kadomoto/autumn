@@ -61,5 +61,5 @@ namespace ithappy.Animals_FREE
                 m_Target.position = m_Transform.position + m_Transform.forward * TargetDistance;
             }
         }
-    }
+	}
 }

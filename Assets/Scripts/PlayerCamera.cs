@@ -57,5 +57,9 @@ namespace ithappy.Animals_FREE
 
             m_Distance = (1f - m_Zoom) * (MAX_DISTANCE - MIN_DISTANCE) + MIN_DISTANCE;
         }
-    }
+		public void SetPlayer(Transform playerTransform)
+		{
+			m_Player = playerTransform;
+		}
+	}
 }
