@@ -18,6 +18,10 @@ namespace ithappy.Animals_FREE
         private float m_RotateSpeed = 90f;
         [SerializeField]
         private Space m_Space = Space.Self;
+
+		private bool m_Jump;
+		[SerializeField]
+		private float m_JumpVelocity;
         [SerializeField]
         private float m_JumpHeight = 5f;
 
@@ -66,6 +70,7 @@ namespace ithappy.Animals_FREE
 
         private void Update()
         {
+			m_Movement.SetJump(m_Jump);
             m_Movement.Move(Time.deltaTime, in m_Axis, in m_Target, m_IsRun, m_IsMoving, out var animAxis, out var isAir);
             m_Animation.Animate(in animAxis, m_IsRun ? 1f : 0f, Time.deltaTime);
         }
@@ -80,6 +85,7 @@ namespace ithappy.Animals_FREE
             m_Axis = axis;
             m_Target = target;
             m_IsRun = isRun;
+			m_Jump = isJump;
 
             if (m_Axis.sqrMagnitude < Mathf.Epsilon)
             {
@@ -127,6 +133,9 @@ namespace ithappy.Animals_FREE
             private float m_WalkSpeed;
             private float m_RunSpeed;
             private float m_RotateSpeed;
+			private float m_JumpHeight;
+
+			private bool m_Jump;
 
             private Space m_Space;
 
@@ -149,6 +158,7 @@ namespace ithappy.Animals_FREE
                 m_WalkSpeed = walkSpeed;
                 m_RunSpeed = runSpeed;
                 m_RotateSpeed = rotateSpeed;
+				m_JumpHeight = jumpHeight;
 
                 m_Space = space;
             }
@@ -158,9 +168,15 @@ namespace ithappy.Animals_FREE
                 m_WalkSpeed = walkSpeed;
                 m_RunSpeed = runSpeed;
                 m_RotateSpeed = rotateSpeed;
+				m_JumpHeight = jumpHeight;
 
                 m_Space = space;
             }
+
+			public void SetJump(bool isJump)
+			{
+				m_Jump = isJump;
+			}
 
             public void SetSurface(in Vector3 normal)
             {
@@ -220,8 +236,16 @@ namespace ithappy.Animals_FREE
 
                 if (m_Controller.isGrounded)
                 {
-                    m_GravityAcelleration = Physics.gravity;
                     isAir = false;
+
+					m_GravityAcelleration = Vector3.zero;
+
+					if(m_Jump)
+					{
+						m_GravityAcelleration.y = Mathf.Sqrt(m_JumpHeight * -2f * Physics.gravity.y);
+
+						m_Jump = false;
+					}
 
                     return;
                 }
@@ -229,7 +253,6 @@ namespace ithappy.Animals_FREE
                 isAir = true;
 
                 m_GravityAcelleration += Physics.gravity * deltaTime;
-                return;
             }
 
             private void GenAnimationAxis(in Vector3 movement, out Vector2 animAxis)
