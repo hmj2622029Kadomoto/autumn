@@ -4199,9 +4199,9 @@ MonoBehaviour:
   - {fileID: 6016976691321374270, guid: 4fea5a93cf0252b42b355ec651546a9d, type: 3}
   - {fileID: 9092906100733315342, guid: 17023547280e5bd429062650a92157ef, type: 3}
   - {fileID: 7118822113086487356, guid: d50986f52dbd8584b8bf6f3f25c26dd6, type: 3}
-  interval: 3
+  interval: 1
   areaCenter: {x: 0, y: 0, z: 0}
-  areaSize: {x: 100, y: 0, z: 100}
+  areaSize: {x: 150, y: 0, z: 150}
 --- !u!4 &833691075
 Transform:
   m_ObjectHideFlags: 0
