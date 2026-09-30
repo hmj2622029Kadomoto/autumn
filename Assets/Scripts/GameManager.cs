@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
 		GameObject spawnedAnimal = Instantiate(m_AnimalPrefabs[selectedID], m_SpawnPoint.position, m_SpawnPoint.rotation);
 
-		ThirdPersonCamera cameraScript = FindObjectOfType<ThirdPersonCamera>();
+		ThirdPersonCamera cameraScript = FindFirstObjectByType<ThirdPersonCamera>();
 
 		if (cameraScript != null)
 		{
