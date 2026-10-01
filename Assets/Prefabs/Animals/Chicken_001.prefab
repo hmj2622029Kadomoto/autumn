@@ -795,6 +795,55 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.007676713, y: 0.21977432, z: 0.04042951}
     m_Extent: {x: 0.20247164, y: 0.24480818, z: 0.28613296}
   m_DirtyAABB: 0
+--- !u!1 &5994677026331651812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 923379713320610416}
+  - component: {fileID: 1216314873695340033}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &923379713320610416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994677026331651812}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.000000045695522, y: -9.103044e-10, z: -0.00000001204648, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8786663927343589864}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216314873695340033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5994677026331651812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8856fcf71b26e4488df2a564edffc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimalPickupController
+  holdPoint: {fileID: 923379713320610416}
+  pickupRange: 4
+  throwPower: 8
+  throwUpPower: 5
+  pickupCooldown: 0.75
 --- !u!1 &6093563810264736657
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1263,7 @@ Transform:
   m_Children:
   - {fileID: 3021287546300287752}
   - {fileID: 231969938195710848}
+  - {fileID: 923379713320610416}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &572120795926337827

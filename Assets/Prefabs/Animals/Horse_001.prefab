@@ -162,6 +162,7 @@ Transform:
   m_Children:
   - {fileID: 8460672658606781039}
   - {fileID: 2562731943141222246}
+  - {fileID: 2391903346510593316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &1702923482206518544
@@ -514,6 +515,55 @@ Transform:
   - {fileID: 2921595481586486339}
   m_Father: {fileID: 4645741666265470184}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2001926665538300726
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2391903346510593316}
+  - component: {fileID: 4574032028643369844}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2391903346510593316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001926665538300726}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.00000008344453, y: -0.0000000034593768, z: -0.0000000046166018, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 491236600219140296}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4574032028643369844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2001926665538300726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8856fcf71b26e4488df2a564edffc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimalPickupController
+  holdPoint: {fileID: 2391903346510593316}
+  pickupRange: 4
+  throwPower: 10
+  throwUpPower: 5
+  pickupCooldown: 0.75
 --- !u!1 &2145775449031781365
 GameObject:
   m_ObjectHideFlags: 0

@@ -72,6 +72,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: waterMelon
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 180e4b2b7f5ad464b8528af5609696be, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 180e4b2b7f5ad464b8528af5609696be, type: 3}
+      propertyPath: m_TagString
+      value: Others
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82,6 +90,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 180e4b2b7f5ad464b8528af5609696be, type: 3}
       insertIndex: -1
       addedObject: {fileID: 588801762817840764}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 180e4b2b7f5ad464b8528af5609696be, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8430539975496087363}
   m_SourcePrefab: {fileID: 100100000, guid: 180e4b2b7f5ad464b8528af5609696be, type: 3}
 --- !u!1 &2414304219459242216 stripped
 GameObject:
@@ -138,3 +149,15 @@ CapsuleCollider:
   m_Height: 0.09
   m_Direction: 2
   m_Center: {x: 0, y: 0.024, z: 0}
+--- !u!114 &8430539975496087363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2414304219459242216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f55c057a60b7642ab227c13ab39d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupObject

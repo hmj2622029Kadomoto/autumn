@@ -73,6 +73,10 @@ PrefabInstance:
       value: grapes
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e05bdec6712bd29409adab0ea5445199, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e05bdec6712bd29409adab0ea5445199, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -90,6 +94,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e05bdec6712bd29409adab0ea5445199, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6483435050644539026}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e05bdec6712bd29409adab0ea5445199, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3182032424221256317}
   m_SourcePrefab: {fileID: 100100000, guid: e05bdec6712bd29409adab0ea5445199, type: 3}
 --- !u!1 &1449465783613134796 stripped
 GameObject:
@@ -144,3 +151,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &3182032424221256317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449465783613134796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9f55c057a60b7642ab227c13ab39d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PickupObject
