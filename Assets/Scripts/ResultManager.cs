@@ -15,6 +15,9 @@ public class ResultManager : MonoBehaviour
 			int score = scoreManager.GetScore();
 			scoreText.text = "Score: " + score;
 		}
+
+		// スコアを表示したのでScoreManagerを削除
+		Destroy(scoreManager.gameObject);
 	}
 	private void Update()
 	{
