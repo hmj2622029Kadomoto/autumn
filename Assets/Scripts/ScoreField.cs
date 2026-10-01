@@ -3,17 +3,26 @@ using UnityEngine;
 
 public class ScoreField : MonoBehaviour
 {
-	[SerializeField] private string correctTag;
-	[SerializeField] private int correctScore = 10;
-	[SerializeField] private int wrongScore = -5;
-		
-	private ScoreManager scoreManager;
+	[SerializeField] string correctTag;
 
-	private void Start()
+	[SerializeField] int correctScore = 10;
+	[SerializeField] int wrongScore = -5;
+	
+	[SerializeField] ParticleSystem correctEffect;
+	
+	[SerializeField] AudioClip correctSE;
+	[SerializeField] AudioClip wrongSE;
+	
+	AudioSource audioSource;
+
+	ScoreManager scoreManager;
+
+	void Start()
 	{
 		scoreManager = FindFirstObjectByType<ScoreManager>();
+		audioSource = GetComponent<AudioSource>();
 	}
-	private void OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
 	{
 		// プレイヤーなら何もしない
 		if(other.GetComponentInParent<MovePlayerInput>() != null)
@@ -35,7 +44,15 @@ public class ScoreField : MonoBehaviour
 			{
 				scoreManager.Addscore(correctScore);
 			}
-			Debug.Log("正解"+correctScore);
+			// 正解エフェクトを再生
+			if(correctEffect != null)
+			{
+				correctEffect.Play();
+			}
+			if(correctSE != null)
+			{
+				audioSource.PlayOneShot(correctSE);
+			}
 		}
 		else
 		{
@@ -44,9 +61,12 @@ public class ScoreField : MonoBehaviour
 			{
 				scoreManager.Addscore(wrongScore);
 			}
-			Debug.Log("不正解"+wrongScore);
-			// オブジェクトを削除
+			if(wrongSE != null)
+			{
+				audioSource.PlayOneShot(wrongSE);
+			}
 		}
+		// オブジェクトを削除
 		Destroy(pickupObject.gameObject);
 	}
 }

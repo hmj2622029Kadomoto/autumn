@@ -4,20 +4,28 @@ using UnityEngine.InputSystem;
 
 public class AnimalPickupController : MonoBehaviour
 {
-	[SerializeField] private Transform holdPoint;
-	[SerializeField] private float pickupRange = 3f;
+	[SerializeField] Transform holdPoint;
+	[SerializeField] float pickupRange = 3f;
 
-	[SerializeField] private float throwPower = 8f;
-	[SerializeField] private float throwUpPower = 5f;
+	[SerializeField] float throwPower = 8f;
+	[SerializeField] float throwUpPower = 5f;
 
-	[SerializeField] private float pickupCooldown = 0.5f;
+	[SerializeField] AudioClip throwSE;
 
-	private float pickupCooldownTimer;
+	[SerializeField] float pickupCooldown = 0.5f;
+
+	AudioSource audioSource;
+	float pickupCooldownTimer;
 
 	// 現在持っているオブジェクト
-	private PickupObject heldObject;
+	PickupObject heldObject;
 
-	private void Update()
+	void Start()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
+	void Update()
 	{
 		if (pickupCooldownTimer > 0f)
 		{
@@ -33,7 +41,7 @@ public class AnimalPickupController : MonoBehaviour
 		}
 	}
 
-	private void TryPickup()
+	void TryPickup()
 	{
 		// すでに持っているなら拾わない
 		if(heldObject != null)
@@ -62,7 +70,7 @@ public class AnimalPickupController : MonoBehaviour
 		}
 	}
 
-	private void ThrowObject()
+	void ThrowObject()
 	{
 		// 持ってないなら何もしない
 		if(heldObject == null)
@@ -71,6 +79,11 @@ public class AnimalPickupController : MonoBehaviour
 		}
 		Vector3 throwDirection = transform.forward;
 		heldObject.Throw(throwDirection,throwPower,throwUpPower);
+
+		if(throwSE != null)
+		{
+			audioSource.PlayOneShot(throwSE);
+		}
 		heldObject = null;
 		pickupCooldownTimer = pickupCooldown;
 	}

@@ -3,9 +3,14 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
-	[SerializeField] private TextMeshProUGUI scoreText;
-	private int score = 0;
-	private void Start()
+	[SerializeField] TextMeshProUGUI scoreText;
+	 int score = 0;
+	void Awake()
+	{
+		// ÉVÅ[ÉìÇÇ‹ÇΩÇ¢Ç≈Ç‡écÇ∑
+		DontDestroyOnLoad(gameObject);
+	}
+	void Start()
 	{
 		UpdateScoreText();
 	}
@@ -15,7 +20,7 @@ public class ScoreManager : MonoBehaviour
 		score += amount;
 		UpdateScoreText();
 	}
-	private void UpdateScoreText()
+	void UpdateScoreText()
 	{
 		scoreText.text ="Score: " + score;
 	}
